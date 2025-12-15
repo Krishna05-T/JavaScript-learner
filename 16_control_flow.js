@@ -24,7 +24,7 @@ if(score > 50) {
     console.log(`power is : ${power}`);
 }
 
-console.log(`power is : ${power}`);     // error power is not defined
+//console.log(`power is : ${power}`);     // error power is not defined
 
 // short hand if 
 
@@ -62,3 +62,26 @@ if(userLoggedIN || loggedInFormEmail){
     console.log("User logged in");
     
 }
+
+// ternary operator
+
+let price = 100;
+
+price > 80 ? console.log("More than 80"): console.log("Less than 80");
+
+// nullish coalescing operator
+
+// The ?? operator provides a default value when a variable is null or undefined.
+
+let name = null;
+
+name = name ?? "Krishan"
+console.log(name);  // Output: Krishan
+
+// Because name is null, "Krishna" is used.
+
+let num;
+num = num ?? 10 ?? 20
+console.log(num);  // Output: 10
+
+
