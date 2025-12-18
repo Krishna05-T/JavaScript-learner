@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: black; color:white;">
+        <div class="parent">
+            <div class="day">Monday</div>
+            <div class="day">Tudesday</div>
+            <div class="day">Wednesday</div>
+            <div class="day">Thurday</div>
+        </div>
+</body>
+<script>
+          const myParent =  document.querySelector('.parent')
+          console.log(myParent)
+          console.log(myParent.children)
+          console.log(myParent.children[1].innerHTML)
+          
+          for(let i=0; i<myParent.children.length; i++){
+               console.log( myParent.children[i].innerHTML)
+          }
+          myParent.children[0].style.color = "red"
+
+          console.log(myParent.firstElementChild)
+          console.log(myParent.lastElementChild)
+
+          const Oneday = document.querySelector('.day')
+          console.log(Oneday)
+          console.log(Oneday.parentElement)
+          console.log(Oneday.parentElement.children[0].innerHTML)
+
+          console.log("NODE:",myParent.childNodes)
+          // first it also count the enter after line also in comment
+          
+</script>
+</html>
