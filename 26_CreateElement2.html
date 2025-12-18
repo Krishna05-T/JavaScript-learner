@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color:black; color:white;">
+
+</body>
+        <script>
+            const div = document.createElement('div')
+            div.className = "main"
+            div.id = Math.round(Math.random() *10 +1)
+            div.setAttribute("title", "genrateTitle")
+            div.style.backgroundColor = "green"
+            div.style.padding = "12px"
+            div.innerText = "Jai Shree Ram "
+            // in this the the value is overright the go to reference take then give reference to it which is not optimized
+            // we use this
+            const text = document.createTextNode("Jai Shree Krishna")
+            div.appendChild(text)
+
+            // the all in the memory so it not show on page to show on page use appendChild
+            document.body.appendChild(div)
+        </script>
+</html>
