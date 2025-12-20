@@ -64,5 +64,8 @@ nav a{
 }
 .res{
     display: inline;
-    background-color: white;
+    background-color: rgba(126, 125, 125, 0.849);
+}
+.res #result{
+    font-size: 30px;
 }
