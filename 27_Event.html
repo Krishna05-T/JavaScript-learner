@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: rgb(31, 28, 28); color: white;">
+        <h2>Amazing images</h2>
+        <div id="images">
+            <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop" ></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" "></li> <!--onclick="alert('Owl')  -->
+            <!-- This is most common but least recommended approach due to less scalability isses -->
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+        </div>
+</body>
+<script>
+        // document.getElementById('owl').onclick = function() {
+        //     alert('Owl clicked again');
+        // }
+        // while better than direct HTML injection, this approach give limtied information about event
+        
+        // document.getElementById('japan').addEventListener('click', function(){
+        //     alert('You are in Japan!!')
+        // }, false)
+
+
+
+       document.getElementById('images').addEventListener('click', function(e) {
+            console.log('image inside ul')
+       }, false)  // true kar de ot event capturing ho ga
+       document.getElementById('owl').addEventListener('click', function(e) {
+        e.stopPropagation()    //stop an event form moving to parent or child elements. It prevents event bubbling or capturing
+        console.log('owl')
+       }, false)
+
+       document.getElementById('google').addEventListener('click', function(e) {
+        e.preventDefault()  //stop the browser's default action of an event. It prevent the default browser behavior associated wiht an event
+        e.stopPropagation()
+        console.log('cliked on google');
+
+       }, false);
+        //addEventListener() listens for an event on an element and runs a function when the event occurs.
+        // it is most commom and recommeneded and give extensive control and information about event
+
+
+        /*
+        Event Prrpagation :- When an event happens on an element, it traval through the DOM. This travelling process is called event propagation
+        
+        Threr are two main phase
+
+        * Event Captring(Default behavior) : the event start from the target element and moves upward to parent elements.
+
+        Child -> Parent -> Grandparent -> Document
+
+        document.getElementById('images').addEventListener('click', function(e) {
+            console.log('image inside ul')
+       }, false)
+       document.getElementById('owl').addEventListener('click', function(e) {
+            console.log('owl')
+       }, false)
+
+        O/P -> owl 
+               image inside ul
+
+        * Event Capturing -: the event starts from the outermost element and moves down to the target element.
+                
+        Document → Parent → Child
+
+        document.getElementById('images').addEventListener('click', function(e) {
+            console.log('image inside ul')
+       }, true)
+       document.getElementById('owl').addEventListener('click', function(e) {
+            console.log('owl')
+       }, true)
+
+
+       * preventDefault()
+       Why is it Needed?
+    Many HTML elements have automatic actions:
+    <form> → page reload on submit
+    <a> → open link
+    <button type="submit"> → submit form
+    preventDefault() stops these actions so JavaScript can control what happens.
+
+        */
+
+
+       // Project remove image
+
+        document.querySelector('#images').addEventListener('click', function(e) {
+            // console.log(e.target);       // this show the element which we click or target | event.target gives the element that actually triggered the event.
+            e.stopPropagation()
+            console.log(e.target.tagName) // tagName is a property that give the name of the HTML tag of an element
+            
+            if(e.target.tagName === 'IMG') {
+                console.log(e.target.id)
+                let removeIt = e.target.parentNode;
+                removeIt.remove()
+            }
+            // removeIt.parentNode.removeChild(removeIt)
+        })
+</script>
+</html>
