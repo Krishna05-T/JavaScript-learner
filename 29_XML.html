@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XML</title>
+</head>
+<body style="background-color: rgb(37, 37, 37); color: white;">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem hic aliquam voluptate exercitationem culpa quae ut animi, nesciunt similique, sint voluptatum, quis reiciendis ipsa iusto aliquid. Dolores asperiores tenetur eum ipsum nostrum quo molestiae quam assumenda nemo? Eius, rerum sapiente.
+</body>
+<script>
+    const requestUrl = 'https://api.github.com/users/hiteshchoudhary'
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', requestUrl)
+        xhr.onreadystatechange = function() {
+            console.log(xhr.readyState);
+            if(xhr.readyState === 4) {
+                const data = JSON.parse(this.responseText);
+                console.log(typeof data);
+                console.log(data.followers);
+            }
+        }
+        xhr.send();
+</script>
+</html>
