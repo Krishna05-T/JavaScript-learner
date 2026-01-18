@@ -25,3 +25,4 @@ console.log(chai.email);
 console.log(chai.password);
 chai.email = 'chai@fb.com'
 console.log(chai.email)
+
