@@ -50,3 +50,4 @@ for (const [key, value] of Object.entries(chai)) {
 }
 
 // name is not visible because enumerable property is false on it
+
