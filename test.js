@@ -1,2 +1,6 @@
-console.log("Jai Shree Ganeshaya Namah");
-console.log(5+5);
+str = "My name is "
+
+name = "Krishna"
+console.log(str+name)
+
+
